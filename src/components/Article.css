@@ -1,7 +1,9 @@
 .site-article {
   flex: 1;
   margin: 10px;
-  padding: 10px;
+  padding: 30px;
+  border: solid gray 1px;
+  border-radius: 4px;
 }
 
 textarea {

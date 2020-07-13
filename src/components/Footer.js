@@ -11,14 +11,14 @@ export default function NewsItem(props) {
   return (
     <footer className = "site-footer">
       { currentLeaf &&
-        <React.Fragment>
-          <div>
+        <div className = "site-footer-flex">
+          <div className = "site-footer-left">
             {currentLeaf.captionTitle}
           </div>
-          <div>
+          <div className = "site-footer-right">
             { new Date( +currentLeaf.unixTime ).toLocaleDateString() }
           </div>
-        </React.Fragment>
+        </div>
       }
     </footer>
   )

@@ -1,12 +1,19 @@
 .site-aside {
   width: 20%;
   padding: 10px;
-  margin: 10px;
+  margin-left: 0px;
   float: left;
 }
 
-.children {
-  margin-left: 16px;
+.menu-children-indent{
+  min-width: 16px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
 }
 
 .menu-disabled {
@@ -17,4 +24,27 @@
 .menu-enabled {
   pointer-events: all;
   color: black;
+}
+
+.menu-item-icon {
+  margin: 0px;
+  padding: 0px;
+  height: 40px;
+}
+
+.menu-item-caption {
+  margin: 0px;
+  margin-left: 10px;
+  padding: 0px;
+  vertical-align: top;
+  height: 40px;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  margin: 0px;
+  padding-left: 20px;
 }

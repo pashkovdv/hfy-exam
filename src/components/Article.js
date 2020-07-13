@@ -17,16 +17,19 @@ export default function Article(props) {
   const [text, setText] = React.useState("");
   const [isTextChanged, setTextChanged] = React.useState(false);
 
-  React.useEffect( () => {
-    if ( shouldSave ) {
-      dispatch(saveCaption({
-        ob: currentLeaf,
-        newCaption: isTextChanged ? text : currentLeaf.caption,
-      }));
-      setText("");
-      setTextChanged(false);
-    }
-  });
+  React.useEffect(
+    () => {
+      if ( shouldSave ) {
+        dispatch(saveCaption({
+          ob: currentLeaf,
+          newCaption: isTextChanged ? text : currentLeaf.caption,
+        }));
+        setText("");
+        setTextChanged(false);
+      }
+    },
+    [shouldSave, currentLeaf, dispatch, isTextChanged, text ]
+  );
 
   return (
     <article className = "site-article">

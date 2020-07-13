@@ -11,11 +11,14 @@ import "./Menu.css";
 export default function Menu(props) {
   const currentLeaf = useSelector(selectCurrentLeaf);
   const dispatch = useDispatch();
-  const [isMenuOpen, toggleMenu] = React.useState("");
+  const [isMenuOpen, toggleMenu] = React.useState(false);
 
   return (
-    <React.Fragment>
+    <div
+      className = 'header-menu-container'
+    >
       <div
+        className = 'header-menu-dropdown'
         onMouseEnter = { () => { toggleMenu( !isMenuOpen ) }}
         onMouseLeave = { () => { toggleMenu( !isMenuOpen ) }}
       >
@@ -23,6 +26,7 @@ export default function Menu(props) {
         { isMenuOpen &&
           <React.Fragment>
             <div
+              className = 'header-menu-dropdown-item'
               disabled = { !currentLeaf }
               onClick = { (e) => {
                 dispatch( openLeaf() );
@@ -32,6 +36,7 @@ export default function Menu(props) {
               Открыть
             </div>
             <div
+              className = 'header-menu-dropdown-item'
               disabled = { !currentLeaf }
               onClick = { (e) => {
                 dispatch( setShouldSave() );
@@ -43,6 +48,6 @@ export default function Menu(props) {
           </React.Fragment>
         }
       </div>
-    </React.Fragment>
+    </div>
   )
 }

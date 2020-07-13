@@ -1,4 +1,27 @@
 .site-header {
   padding: 10px;
   margin: 10px;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: lightgrey;
+}
+
+.site-header-left {
+  float: left;
+  margin: 10px;
+}
+
+.site-header-logo {
+  float: right;
+  flex: 1;
+  text-align: right;
+  margin: 10px;
+}
+
+.site-header-right {
+  width: max-content;
+  float: right;
+  margin: 10px;
 }

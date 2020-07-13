@@ -1,5 +1,30 @@
+.header-menu-container {
+  position: relative;
+  width: 112px;
+  font-weight: 600;
+}
+
 div[disabled]
 {
   pointer-events: none;
+  color: darkgray;
+}
+
+.header-menu-dropdown{
+  position: absolute;
+  width: 100px;
+  font-size: 16px;
+  top: -20px;
+  padding: 8px;
+  background-color: gray;
+}
+
+.header-menu-dropdown-item{
+  position: relative;
+  top: 8px;
+  width: 100px;
+  font-size: 16px;
+  padding: 8px;
+  margin-left: -8px;
   color: lightgray;
 }

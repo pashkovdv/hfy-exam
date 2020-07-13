@@ -1,5 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import AddBoxOutlinedIcon from '@material-ui/icons/AddBoxOutlined';
+import IndeterminateCheckBoxOutlinedIcon from '@material-ui/icons/IndeterminateCheckBoxOutlined';
+import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+
 import {
   toggleNode,
   selectDB,
@@ -24,20 +28,31 @@ export default function Aside(props) {
       buildMenu( db.filter( nodeVal => nodeVal.id === childNode )[0] )
     );
     
+    let classes = isCurrentLeafOpen && node.id !== currentLeaf.id ? 'menu-disabled ' : 'menu-enabled ';
     return (
-      <div
-        className = { isCurrentLeafOpen && node.id !== currentLeaf.id ? 'menu-disabled' : 'menu-enabled' }
+      <li
         key = {node.id}
         onClick = { (e) => {
           e.stopPropagation();
           dispatch(toggleNode( node ));
         }}
       >
-        {node.title}
-        <div className = 'children'>
-          {_children}
+        <div className = {'menu-item ' + classes} >
+          <div className = 'menu-item-icon'>
+            { node.children ?
+                isOpen ? <IndeterminateCheckBoxOutlinedIcon fontSize="small" /> : <AddBoxOutlinedIcon fontSize="small" />
+              :
+                <EmailOutlinedIcon fontSize="small" />
+            }
+          </div>
+          <div className = 'menu-item-caption'>
+            {node.title}
+          </div>
         </div>
-      </div>
+        <ul>
+          {_children}
+        </ul>
+      </li>
     );
   }
 
@@ -45,7 +60,9 @@ export default function Aside(props) {
 
   return (
     <aside className = "site-aside">
-      {menu}
+      <ul>
+        {menu}
+      </ul>
     </aside>
   )
 }
