@@ -34,7 +34,7 @@ export default function Aside(props) {
         key = {node.id}
         onClick = { (e) => {
           e.stopPropagation();
-          dispatch(toggleNode( node ));
+          if ( !isCurrentLeafOpen ) dispatch(toggleNode( node ));
         }}
       >
         <div className = {'menu-item ' + classes} >

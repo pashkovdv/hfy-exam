@@ -28,7 +28,7 @@ export default function Article(props) {
         setTextChanged(false);
       }
     },
-    [shouldSave, currentLeaf, dispatch, isTextChanged, text ]
+    [shouldSave]
   );
 
   return (
